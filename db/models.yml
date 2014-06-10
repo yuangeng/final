@@ -1,3 +1,57 @@
+User:
+  - username: string
+  - password: string
+  - name: string
+
+Mothership:
+  - name: string
+  - origin_id: integer
+  - web_url: string
+
+Origin:
+  - origin_name: string
+
+Store:
+  - store_name: string
+  - mothership_id: integer
+  - address: string
+  - location_id: integer
+  - tel: string
+  - yelp_url: string
+  - web_url: string
+
+Location:
+  - name: string
+
+Ramen:
+  - name: string
+
+Broth_Base:
+  - name: string
+
+Broth_Seasoning:
+  - name: string
+
+Broth_Weight:
+  - name: string
+
+Noodle:
+  - name: string
+
+Dish:
+  - dish_name: string
+  - ramen_id: integer
+  - broth_weight_id: integer
+  - broth_base_id: integer
+  - broth_seasoning_id: integer
+  - noodle_id: integer
+  - description: text
+
+Availability:
+  - dish_id: integer
+  - store_id: integer
+
+
 # Example table for a typical Book model.
 #
 # Book:
