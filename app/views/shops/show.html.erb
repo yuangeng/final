@@ -2,44 +2,47 @@
 <% mothership = Mothership.read(mothership_id) %>
 
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-12">
     <h2><%= link_to(mothership["name"], mothership["web_url"]) %></h2>
       <% origin = Origin.find_by("id" => mothership["origin_id"]) %>
         Origin: <%= origin["origin_name"] %>
         <p></p>
-      <ul>
       <% stores = Store.where("mothership_id" => mothership["id"]) %>
       <% stores.each do |store| %></ul>
-      <ul>
+        <ul>
         <h3><%= link_to(store["store_name"], store["web_url"]) %></h3>
           Address: <%= store["address"] %><br>
           Phone: <%= store["tel"] %><br>
-        </ul>
+
+        <ul>
          </li>
           <div class="panel panel-default">
             <div class="panel-heading">Signature Ramen Dishes</div>
               <table class="table">
-                <% availabilities = Availability.where("store_id" => store.id) %>
-                  <% availabilities.each do |availability| %>
-                    <tbody>
-                      <thread>
-                        <tr>
-                          <% dish = Dish.find_by("id" => availability["dish_id"]) %>
-                            <td><%= dish["dish_name"] %></td>
-                            <td><%= dish["description"] %></td>
-                        </tr>
-                      </thread>
-                  </tbody>
+                <tbody>
+                  <thread>
+                    <% availabilities = Availability.where("store_id" => store.id) %>
+                    <% availabilities.each do |availability| %>
+                    <tr>
+                      <% dish = Dish.find_by("id" => availability["dish_id"]) %>
+                        <td><%= dish["dish_name"] %></td>
+                        <td><%= dish["description"] %></td>
+                    </tr>
+                    <% end %>
+                  </thread>
+                </tbody>
               </table>
-           <% end %>
            </div>
-           </div>
+          </div>
+        </ul>
+        </ul>
+        <% end %>
+
            </div>
 
             </div>
           </div>
-    <% end %>
-    </div>
+       </div>
 
 
 

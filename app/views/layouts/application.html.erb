@@ -13,7 +13,7 @@
 <body>
 
   <div class="container">
-    <div class="header" >
+    <div class="page-header" >
       <div class="row" style="background-color:#FFD700" >
         <div class="col-md-12">
           <h1>Rameniacs</h1>
@@ -22,20 +22,20 @@
         <div class="row">
           <div class="col-md-8" style="margin-left: inherit">
             <ul class = "nav nav-tabs nav-justified">
-              <li cass = "active"><%= link_to "Current Location Shops", "/movies", "class" => "item-link"  %></li>
+              <li cass = "active"><%= link_to "Homepage", "/", "class" => "item-link"  %></li>
 
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                   Ramen by Location <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li cass = "active"><%= link_to "New York", "/actors" %></li>
-                  <li cass = "active"><%= link_to "Chicago", "/actors" %></li>
+                  <li cass = "active"><%= link_to "New York", "/" %></li>
+                  <li cass = "active"><%= link_to "Chicago", "/" %></li>
                  </ul>
               </li>
 
-              <li cass = "active"><%= link_to "Highest Rated Shops", "/directors" %></li>
-              <li cass = "active"><%= link_to "Our Favorite Dishes", "/directors" %></li>
+              <li cass = "active"><%= link_to "Highest Rated Shops", "/" %></li>
+              <li cass = "active"><%= link_to "Our Favorite Dishes", "/" %></li>
             </ul>
           </div>
           <div class="pull-right">
@@ -54,9 +54,9 @@
             <% end %>
           </div>
         </div>
-        <h4 class="text-warning"><%= notice %></h4>
-      </div>
+
+
       <%= yield %>
-    <div>
+
   </body>
 </html>
