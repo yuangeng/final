@@ -1,11 +1,4 @@
 
-<div class="col-md-14">
-  <%= link_to "Add a New Ramen Shop", "/shops/new", "class" => 'btn btn-lg btn-primary' %>
-<p>
-<p>
-
-</div>
-
 
 <div class="row" style="margin-right: inherit">
   <% Mothership.read.order("id asc").each do |mothership| %>
@@ -15,10 +8,10 @@
           <% if Rails.application.assets.find_asset("#{mothership["name"]}.jpg").nil? %>
             <%=link_to image_tag("cat.jpg") %>
             <% else %>
-            <%=link_to image_tag("#{mothership["name"]}.jpg"), "#{mothership["web_url"]}" %>
+            <%=link_to image_tag("#{mothership["name"]}.jpg"), "/shops/#{mothership["id"]}" %>
           <% end %>
           <h2>
-            <%= link_to mothership["name"], "/shops/#{mothership["id"]}" %>
+            <%= link_to(mothership["name"], "/shops/#{mothership["id"]}") %>
           </h2>
           <p>
             <% origin = Origin.find_by("id" => mothership["origin_id"]) %>
@@ -29,10 +22,21 @@
           <% else %>
             <p>Multiple U.S. Locations</p>
           <% end %>
+          <p>
+            <%= link_to("Go to Official Website", mothership["web_url"]) %>
+          </p>
         </div>
       </div>
     </div>
   <% end %>
+
+<div class="col-md-6">
+<p>
+
+  <%= link_to "Add a New Ramen Shop", "/shops/new", "class" => 'btn btn-lg btn-primary' %>
+<p>
+
+</div>
 
 
 </div>
