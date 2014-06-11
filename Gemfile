@@ -4,8 +4,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.4'
 
 
-
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
@@ -44,14 +42,18 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem "quiet_assets", group: "development"
-gem "hirb", group: "development"
-gem "ez", group: "development"
+gem "ez"
+# gem "googlecharts"
+
 group :development, :test do
   gem "sqlite3"
+  gem "quiet_assets"
+  gem "hirb"
 end
 
 group :production do
   gem "pg"
   gem "rails_12factor"
 end
+
+ruby "2.1.1"
