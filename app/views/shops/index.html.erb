@@ -1,18 +1,13 @@
-<div class = "row" style="margin-left: inherit">
-  <div class="col-md-2 col-md-offset-10">
-    <%= link_to "Add a New Ramen Shop", "/shops/new", "class" => 'btn btn-lg btn-primary' %>
-  </div>
-</div>
-
-<div class="row">
-  <div class = "col-md-8">
-    <% Mothership.read.order("name desc").each do |mothership| %>
-      <div class = "row">
-        <div class="col-md-4">
-          <div class="thumbnail">
-            <%=link_to image_tag("#{mothership["name"]}.jpg"), "#{mothership["web_url"]}" %>
-          </div>
+<div class="row" style="margin-right: inherit">
+  <% Mothership.read.order("id asc").each do |mothership| %>
+    <div class = "col-sm-6 col-md-4">
+      <div class="thumbnail">
         <div class="caption">
+          <% if Rails.application.assets.find_asset("#{mothership["name"]}.jpg").nil? %>
+            <%=link_to image_tag("cat.jpg") %>
+            <% else %>
+            <%=link_to image_tag("#{mothership["name"]}.jpg"), "#{mothership["web_url"]}" %>
+          <% end %>
           <h2>
             <%= link_to mothership["name"], "/shops/#{mothership["id"]}" %>
           </h2>
@@ -27,18 +22,15 @@
           <% end %>
         </div>
       </div>
-    <% end %>
+    </div>
+  <% end %>
+
+  <div class="col-md-4 col-md-offset-10">
+    <%= link_to "Add a New Ramen Shop", "/shops/new", "class" => 'btn btn-lg btn-primary' %>
   </div>
 
-<div class="col-md-4 well aside">
-    <h2>Did You Know...</h2>
-
-    <ul>
-      <li>We have <%= Mothership.count %> ramen brands and <%= Store.count %> ramen shops in our database.</li>
-      <li>blah blah blah blah blah blah.</li>      <li>blah blah blah blah blah blah.</li>      <li>blah blah blah blah blah blah.</li>      <li>blah blah blah blah blah blah.</li>      <li>blah blah blah blah blah blah.</li>
-      <li>blah blah blah blah blah blah.</li>      <li>blah blah blah blah blah blah.</li>
-  </div>
 </div>
+
 
 
 

@@ -7,7 +7,8 @@ class ShopsController < ApplicationController
                  "web_url" => params["web_url"])
 
     Store.create("yelp_url" => params["yelp_url"],
-                 "location_id" => params["chosen_location_id"])
+                 "location_id" => params["chosen_location_id"],
+                 "mothership_id" => Mothership.find_by("name" => params["name"]).id)
 
     redirect_to "/"
   end
