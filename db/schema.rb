@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140608184110) do
+ActiveRecord::Schema.define(version: 20140611041916) do
 
   create_table "availabilities", force: true do |t|
     t.integer "dish_id"
     t.integer "store_id"
+    t.integer "mothership_id"
   end
 
   create_table "broth_bases", force: true do |t|

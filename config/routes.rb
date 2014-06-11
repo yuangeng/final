@@ -5,6 +5,8 @@ get "/" => "shops#index"
 
 # -- Create a new Ramen Shop
 get "/shops/new" => "shops#new"
+get "/shops/:id" => 'shops#show'
+
 post "/" => "shops#create"
 
 # Sign-In and Sign-Out

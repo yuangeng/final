@@ -50,6 +50,7 @@ Dish:
 Availability:
   - dish_id: integer
   - store_id: integer
+  - mothership_id: integer
 
 
 # Example table for a typical Book model.
